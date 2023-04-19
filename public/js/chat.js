@@ -29,11 +29,6 @@ const urlParams = new URLSearchParams(queryString);
 const username = urlParams.get('username');
 const roomid = urlParams.get('roomid');
 
-// create socket 
-// window.onload= function(){
-//   socket = io();
-// }
-
 document.addEventListener('DOMContentLoaded', () => {
 
   socket.emit('join-room',roomid,username);
@@ -52,7 +47,7 @@ function sendmsg(){
   }
 }
 
-socket.on('receive-message', (name, message) => {
+function receivemsg (name,message){
   const chatMessages = document.querySelector('.chat-container');
   const chatMessage = document.createElement('div');
   chatMessage.classList.add('chat-message');
@@ -72,4 +67,17 @@ socket.on('receive-message', (name, message) => {
 
   document.getElementById("chat-msg").value = "";
 
+}
+
+socket.on('receive-message', (name, message) => {
+  receivemsg(name,message);
 });
+
+// hanldle click enter in input field 
+document.getElementById("chat-msg").addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+  sendmsg();
+  }
+}
+);
