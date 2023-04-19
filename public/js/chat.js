@@ -1,6 +1,5 @@
 function copyRoomId() {
   const roomId = document.querySelector(".room-id").textContent.trim().split(": ")[1].replace("Copy", "").trim();
-  console.log(roomId)
   const tempTextArea = document.createElement("textarea");
   tempTextArea.value = roomId;
   document.body.appendChild(tempTextArea);
@@ -43,23 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 socket.on('user-connected', username => {
   addSystemMessage(`${username} has joined the chat`);
-  console.log('user connected');
-
-
 });
 
 function sendmsg(){
   let message = document.getElementById("chat-msg").value;
   if(message === ""){
-    console.log("empty message");
   }else{
-    console.log(message);
     socket.emit('message',username,message,roomid);
   }
 }
 
 socket.on('receive-message', (name, message) => {
-  console.log(`received message: ${message} from ${name}`);
   const chatMessages = document.querySelector('.chat-container');
   const chatMessage = document.createElement('div');
   chatMessage.classList.add('chat-message');

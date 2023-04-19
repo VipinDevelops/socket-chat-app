@@ -34,24 +34,20 @@ app.post('/submit',(req,res)=>{
         }
     }
     else{
-        console.log('Please enter a username')
         return;
     }
 
-    console.log(`Username: ${username} and Room ID: ${roomId}`);
     res.redirect(`/chat?username=${username}&roomid=${roomId}`);
 })
 
 app.get('/chat', (req, res) => {
     const { username, roomid } = req.query;
     res.render('chat', { username, roomid });
-    // console.log(`Username: ${username} and Room ID: ${roomid}`);
 });
 
 
 io.on('connection', (socket) => {
     socket.on('join-room', (roomid, username) => {
-        console.log(`Username: ${username} and Room ID: ${roomid}`);
         //join socket to room
         socket.join(roomid);
         // send user connected message to room
