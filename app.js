@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('home');
     }
 );
 
@@ -22,7 +22,7 @@ app.post('/submit',(req,res)=>{
     console.log(`Username: ${username} and Room ID: ${roomid}`);
 })
 
-let port = 7000;
+let port = 5000;
 const server = app.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
 });

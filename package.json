@@ -2,10 +2,10 @@
   "name": "socket-chat-app",
   "version": "1.0.0",
   "description": "A real-time chat application that allows users to send messages to each other and use Socket.io for real-time updates.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
