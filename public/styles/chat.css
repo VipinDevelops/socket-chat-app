@@ -47,11 +47,21 @@ body {
 
 .chat-send-btn {
     border: none;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 20px;
+    padding: 15px 20px;
     background-color: #007bff;
     color: #fff;
-}
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  
+  .chat-send-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
 
 .room-id {
     background-color: #007bff;

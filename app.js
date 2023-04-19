@@ -5,11 +5,15 @@ const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 const httpServer = createServer(app);
-const io = new Server(httpServer);
+const io = new Server(httpServer,{cors: {origin: '*'}});
 
+const port = 4000;
+
+// Set view engine
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+// Parse URL-encoded bodies 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
@@ -41,12 +45,18 @@ app.post('/submit',(req,res)=>{
 app.get('/chat', (req, res) => {
     const { username, roomid } = req.query;
     res.render('chat', { username, roomid });
-    console.log(`Username: ${username} and Room ID: ${roomid}`);
+    // console.log(`Username: ${username} and Room ID: ${roomid}`);
 });
 
-let port = 4000;
-app.listen(port,()=>{
-    console.log(`Server is running on port ${port}`);
+
+io.on('connection', (socket) => {
+    console.log('a user connected');
 });
+
+httpServer.listen(port,()=>{
+    console.log(`Server is running on port ${port}..`);
+});
+
+
 
 

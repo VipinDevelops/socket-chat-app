@@ -9,3 +9,10 @@ function copyRoomId() {
   document.body.removeChild(tempTextArea);
   alert(`Room ID copied to clipboard!`);
 }
+
+
+// create socket 
+window.onload= function(){
+  var socket = io();
+  }
+
