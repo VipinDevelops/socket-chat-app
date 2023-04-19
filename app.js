@@ -13,13 +13,13 @@ app.get('/', (req, res) => {
 );
 
 app.post('/submit',(req,res)=>{
+    const { username, roomid } = req.body;
     // log the form data to the console
-    console.log(req.body);
-
-    if(req.body.username === "" || req.body.roomid === ""){
-        console.log("Please enter a username and room id");
+    if(username == "" || roomid == ""){
+        console.log("Please enter a valid username and room id");
+        return;
     }
-
+    console.log(`Username: ${username} and Room ID: ${roomid}`);
 })
 
 let port = 7000;
