@@ -1,35 +1,69 @@
-		/* Add your custom CSS styles here */
-		/* For example: */
-		body {
-			background-color: #f8f9fa;
-			font-family: sans-serif;
-			padding-top: 60px;
-		}
+body {
+    margin: 0;
+    background-color: #f8f9fa;
+    font-family: sans-serif;
+}
 
-		.chat-container {
-			max-width: 800px;
-			margin: 0 auto;
-			background-color: #fff;
-			box-shadow: 0 3px 10px rgba(0,0,0,.2);
-			border-radius: 10px;
-			padding: 20px;
-			overflow: hidden;
-		}
+.chat-container {
+    height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+}
 
-		.chat-message {
-			margin-bottom: 10px;
-		}
+.chat-message {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-width: 80%;
+}
 
-		.chat-message .sender {
-			font-weight: bold;
-			margin-right: 5px;
-		}
+.chat-message .sender {
+    font-weight: bold;
+    margin-right: 5px;
+}
 
-		.chat-message .timestamp {
-			font-size: 12px;
-			color: #999;
-		}
+.chat-message .message {
+    margin-left: 5px;
+}
 
-		.chat-message .message {
-			margin-left: 20px;
-		}
+.chat-input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.chat-input {
+    flex: 1;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.chat-send-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.room-id {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.copy-btn {
+    margin-left: 10px;
+}

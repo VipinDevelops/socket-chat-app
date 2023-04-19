@@ -8,9 +8,10 @@ function validateForm() {
       usernameInput.classList.remove('is-invalid');
     }
     
-    if (!roomidInput.value) {
-      roomidInput.classList.add('is-invalid');
-    } else {
-      roomidInput.classList.remove('is-invalid');
-    }
+    // if (!roomidInput.value) {
+    //   roomidInput.classList.add('is-invalid');
+    // } else {
+    //   roomidInput.classList.remove('is-invalid');
+    // }
+
   }

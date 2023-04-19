@@ -10,32 +10,27 @@
 
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="chat-container">
-					<!-- Chat messages go here -->
-					<div class="chat-message">
-						<span class="sender">John:</span>
-						<span class="timestamp">12:30 PM</span>
-						<span class="message">Hey, how's it going?</span>
-					</div>
-					<div class="chat-message">
-						<span class="sender">Jane:</span>
-						<span class="timestamp">12:32 PM</span>
-						<span class="message">Not bad, thanks. How about you?</span>
-					</div>
-				</div>
-
-				<!-- Chat input form -->
-				<form>
-					<div class="form-group">
-						<label for="message-input">Type your message:</label>
-						<input type="text" class="form-control" id="message-input" placeholder="Enter your message">
-					</div>
-					<button type="submit" class="btn btn-primary">Send</button>
-				</form>
+    <div class="room-id">
+		Room ID: <%= roomid %>
+        <button class="btn btn-light copy-btn" onclick="copyRoomId()">Copy</button>
+	</div>
+	
+	<div class="chat-container">
+		<!-- Chat messages go here -->
+			<div class="chat-message">
+				<span class="sender">John:</span>
+                <span></span>
+				<span class="message">Hey, how's it going?</span>
 			</div>
+			<div class="chat-message">
+				<span class="sender">Jane:</span>
+				<span class="message">Not bad, thanks. How about you?</span>
+			</div>
+
+		<!-- Chat input form -->
+		<div class="chat-input-container">
+			<input type="text" class="chat-input" placeholder="Type your message...">
+			<button type="submit" class="chat-send-btn">Send</button>
 		</div>
 	</div>
 
@@ -43,5 +38,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JS Script -->
+    <script src="/js/chat.js" ></script>
+
 </body>
 </html>
