@@ -1,5 +1,11 @@
 const express = require('express');
+const { Server } = require('socket.io');
+const {createServer} = require('http');
+const { v4: uuidv4 } = require('uuid');
+
 const app = express();
+const httpServer = createServer(app);
+const io = new Server(httpServer);
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -14,16 +20,32 @@ app.get('/', (req, res) => {
 
 app.post('/submit',(req,res)=>{
     const { username, roomid } = req.body;
-    // log the form data to the console
-    if(username == "" || roomid == ""){
-        console.log("Please enter a valid username and room id");
+
+    let roomId;
+    if (!username == ""){
+        if( roomid === ""){
+            roomId = uuidv4();
+        }else{
+            roomId = roomid;
+        }
+    }
+    else{
+        console.log('Please enter a username')
         return;
     }
-    console.log(`Username: ${username} and Room ID: ${roomid}`);
+
+    console.log(`Username: ${username} and Room ID: ${roomId}`);
+    res.redirect(`/chat?username=${username}&roomid=${roomId}`);
 })
 
-let port = 5000;
-const server = app.listen(port,()=>{
+app.get('/chat', (req, res) => {
+    const { username, roomid } = req.query;
+    res.render('chat', { username, roomid });
+    console.log(`Username: ${username} and Room ID: ${roomid}`);
+});
+
+let port = 4000;
+app.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
 });
 
