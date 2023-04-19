@@ -12,34 +12,32 @@
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
- 
 
 </head>
 <body>
-    <div class="room-id">
+	<div class="room-id">
 		Room ID: <%= roomid %>
         <button class="btn btn-light copy-btn" onclick="copyRoomId()">Copy</button>
 	</div>
 	
 	<div class="chat-container">
-		<!-- Chat messages go here -->
-			<div class="chat-message">
-				<span class="sender">John:</span>
-				<span class="message">Hey, <%= username %> how's it going?</span>
-			</div>
-			<div class="chat-message">
-				<span class="sender">Jane:</span>
-				<span class="message">Not bad, thanks. How about you?</span>
-			</div>
+		<div class="system-messages"></div>
 
-		<!-- Chat input form -->
-		<div class="chat-input-container">
-			<input type="text" class="chat-input" placeholder="Type your message...">
-			<button type="submit" class="chat-send-btn"><i class="fa-regular fa-paper-plane"></i></button>
-		</div>
+			<div class="chat-message">
+					<span class="sender">Vipin:</span>
+					<span class="message">Hey, <%= username %> Welcome to  Socket Chat !! </span>
+				</div>
+			<div class="chat-message">
+					<span class="sender">Jane:</span>
+					<span class="message">Not bad, thanks. How about you?</span>
+				</div>
 	</div>
 
-
+	<!-- Chat input form -->
+	<div class="chat-input-container">
+		<input type="text" class="chat-input" id="chat-msg" placeholder="Type your message...">
+		<button type="submit" onclick="sendmsg()" class="chat-send-btn"><i class="fa-regular fa-paper-plane"></i></button>
+	</div>
 
 	 <!-- Socket.io CDN -->
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -58,6 +58,10 @@ io.on('connection', (socket) => {
         io.to(roomid).emit('user-connected', username);
     });
 
+    socket.on('message', (name, message, roomid) => {
+        io.to(roomid).emit('receive-message', name, message);
+    });
+
 });
 
 httpServer.listen(port,()=>{

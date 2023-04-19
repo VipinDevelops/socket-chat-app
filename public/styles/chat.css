@@ -77,3 +77,16 @@ body {
 .copy-btn {
     margin-left: 10px;
 }
+.system-message {
+    font-size: 16px;
+    color: #007bff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: bold;
+    background-color: #f2f2f2;
+  }
+  
