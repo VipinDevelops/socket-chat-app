@@ -50,7 +50,14 @@ app.get('/chat', (req, res) => {
 
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    socket.on('join-room', (roomid, username) => {
+        console.log(`Username: ${username} and Room ID: ${roomid}`);
+        //join socket to room
+        socket.join(roomid);
+        // send user connected message to room
+        io.to(roomid).emit('user-connected', username);
+    });
+
 });
 
 httpServer.listen(port,()=>{

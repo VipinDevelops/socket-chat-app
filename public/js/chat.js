@@ -10,9 +10,27 @@ function copyRoomId() {
   alert(`Room ID copied to clipboard!`);
 }
 
+let socket = io();
 
 // create socket 
-window.onload= function(){
-  var socket = io();
+// window.onload= function(){
+//   socket = io();
+// }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const username = urlParams.get('username');
+  const roomid = urlParams.get('roomid');
+
+  console.log(`Username: ${username} and Room ID: ${roomid}`);
+
+  socket.emit('join-room',roomid,username);
+});
+
+socket.on('user-connected',username=>{
+  // appendMessage(`${username} disconnected`);
+  console.log(`${username} connected`);
   }
+)
 
