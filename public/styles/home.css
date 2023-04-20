@@ -47,8 +47,9 @@ body {
 }
 
 #join-room-form label {
-  font-size: 0.8rem;
+  font-size: 0.8rem; /* Increased font size */
   margin-bottom: 5px;
+  display: block; /* Make label a block element */
 }
 
 #join-room-form input[type="text"] {
@@ -57,8 +58,8 @@ body {
   border-bottom: 2px solid #007BFF;
   box-shadow: none;
   outline: none;
-  font-size: 0.9rem;
-  padding: 8px 0;
+  font-size: 1rem;
+  padding: 15px 0 8px; /* Added padding to the top */
   margin-bottom: 15px;
   width: 100%;
 }
@@ -67,6 +68,7 @@ body {
   border-color: #007BFF;
   box-shadow: none;
 }
+
 
 .invalid-feedback {
   display: none;
