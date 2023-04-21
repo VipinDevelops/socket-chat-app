@@ -2,7 +2,7 @@ const express = require('express');
 const { Server } = require('socket.io');
 const {createServer} = require('http');
 const { v4: uuidv4 } = require('uuid');
-
+require('dotenv').config();
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer,{cors: {origin: '*'}});
@@ -54,14 +54,23 @@ io.on('connection', (socket) => {
         io.to(roomid).emit('user-connected', username);
     });
 
+    socket.on('exit-room', (roomid,username) => {   
+        // socket.leave(roomid);     
+        socket.leave(roomid);
+        io.to(roomid).emit('user-disconnected', username);
+
+    });
+
     socket.on('message', (name, message, roomid) => {
         io.to(roomid).emit('receive-message', name, message);
     });
 
 });
 
-httpServer.listen(port,()=>{
-    console.log(`App running on http://localhost:${port}/`);
+const PORT = process.env.PORT || 3000;
+
+httpServer.listen(PORT,()=>{
+    console.log(`App running on http://localhost:${PORT}/`);
 });
 
 

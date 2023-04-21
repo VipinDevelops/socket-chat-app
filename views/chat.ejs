@@ -18,15 +18,12 @@
 	<div class="room-id">
 		Room ID: <%= roomid %>
         <button class="btn btn-light copy-btn" onclick="copyRoomId()">Copy</button>
+		<button class="btn btn-light exit-btn" onclick="exitRoom()" ><i class="fa-solid fa-right-from-bracket"></i></button>
 	</div>
 	
 	<div class="chat-container">
 		<div class="system-messages"></div>
-
-			<div class="chat-message">
-					<span class="sender">Vipin:</span>
-					<span class="message">Hey, <%= username %> Welcome to  Socket Chat !! </span>
-				</div>
+		<div class="chat-message"></div>
 	</div>
 
 	<!-- Chat input form -->
