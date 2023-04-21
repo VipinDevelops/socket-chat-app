@@ -7,8 +7,6 @@ const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer,{cors: {origin: '*'}});
 
-const port = 4000;
-
 // Set view engine
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
