@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "A real-time chat application that allows users to send messages to each other and use Socket.io for real-time updates.",
   "main": "app.js",
-  "engines": {
-    "node":"14.x"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js"
