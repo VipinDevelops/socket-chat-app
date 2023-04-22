@@ -24,7 +24,8 @@ function exitRoom(){
 }
 
  function addSystemMessage(message) {
-  const chatMessages = document.querySelector('.system-messages');
+  // const chatMessages = document.querySelector('.system-messages');
+  const chatMessages = document.querySelector('.chat-container');
   const systemMessage = document.createElement('div');
   systemMessage.classList.add('system-message');
   const messageText = document.createElement('span');
@@ -34,11 +35,8 @@ function exitRoom(){
   chatMessages.appendChild(systemMessage);
 }
 
-
+// change this logic to function if user exit and again join the room then it should emit join-room event
 document.addEventListener('DOMContentLoaded', () => {
-  // const username = username;
-  // const roomid = roomid;
-  
   // Check if the user's information is already present in local storage
   const userInfo = localStorage.getItem('userInfo');
   if (userInfo) {
