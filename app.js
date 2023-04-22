@@ -5,8 +5,6 @@ const { v4: uuidv4 } = require('uuid');
 require('dotenv').config();
 const { saveMessage, getMessages } = require('./database/db.js');
 
-
-
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer,{cors: {origin: '*'}});
