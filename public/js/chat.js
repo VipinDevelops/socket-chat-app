@@ -54,6 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 socket.on('user-connected', username => {
+  socket.on('receive-messages', async (messages) => {
+    await messages.forEach((message) => {
+      receivemsg(message.username,message.message);
+    });
+  });
   addSystemMessage(`${username} has joined the chat`);
 });
 
